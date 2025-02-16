@@ -171,8 +171,16 @@ dd {
 }
 
 video {
-    min-width: 20em;
-    max-width: 25em;
-    width: 30%;
-    height: auto;
+    width: 100%; /* Ocupa todo el ancho disponible */
+    max-width: 25em; /* Máximo de 25em para evitar que sea demasiado grande */
+    height: auto; /* Mantiene la proporción */
+    display: block; /* Evita espacios extra */
+    margin: 0 auto; /* Centra el video */
+}
+
+/* Ajustes para pantallas más pequeñas */
+@media (max-width: 480px) {
+    video {
+        max-width: 20em; /* Reduce el tamaño en móviles */
+    }
 }
