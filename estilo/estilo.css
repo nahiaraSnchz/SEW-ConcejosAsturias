@@ -170,3 +170,9 @@ dd {
     background-color: #f4f4f4;
 }
 
+video {
+    min-width: 20em;
+    max-width: 25em;
+    width: 30%;
+    height: auto;
+}
