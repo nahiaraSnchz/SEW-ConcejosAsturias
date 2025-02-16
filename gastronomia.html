@@ -17,3 +17,108 @@
     <link rel="icon" href="multimedia/favicon.ico" />
 
 </head>
+
+<body>
+
+    <header>
+        <h1><a href="index.html" title="Página Inicio">ConcejosAsturias</a></h1>
+        <nav>
+            <a href="index.html" title="Página Inicio">Inicio</a>
+            <a class="active" href="gastronomia.html" title="Página Gastronomía">Gastronomía</a>
+            <a href="rutas.html" title="Página Rutas">Rutas</a>
+            <a href="juego.html" title="Página Juego">Juego</a>
+            <a href="reservas.php" title="Página Reservas">Reservas</a>
+            <a href="meteorologia.html" title="Página Meteorología">Meteorología</a>
+            <a href="ayuda.html" title="Página Ayuda">Ayuda</a>
+        </nav>
+    </header>
+
+    <p>Estás en: <a href="index.html" title="Página Inicio">Inicio</a> > Gastronomía</p>
+
+    <main>
+        <h2>Grado</h2>
+
+        <section>
+            <h3>Sobre Grado</h3>
+            <p>Grado es un concejo de la comunidad autónoma del Principado de Asturias, España. Limita al norte con Candamo y Las Regueras, al este con Proaza y Yernes y Tameza, al sur con Belmonte de Miranda y Salas, y al oeste con Tineo y Salas. Su capital es la villa de Grado.</p>
+            
+            <picture>
+                <source media="(max-width: 465px)" srcset="multimedia/images/mapa_grado_movil.png" />
+                <source media="(min-width: 799px)" srcset="multimedia/images/mapa_grado.png" />
+                <source media="(min-width: 800px)" srcset="multimedia/images/mapa_grado_ordenador.png" />
+                <img src="multimedia/images/mapa_grado_ordenador.png" alt="Mapa de Grado" />
+            </picture>
+            
+
+        </section>
+
+        <section>
+            <h3>Platos Típicos de Grado</h3>
+            
+            <!-- Lista ordenada -->
+            <h4>Platos más conocidos:</h4>
+            <ol>
+                <li>Fabada asturiana</li>
+                <li>Arroz con leche</li>
+                <li>Chorizo a la sidra</li>
+            </ol>
+
+            <!-- Lista no ordenada con lista anidada -->
+            <h4>Productos típicos de la zona:</h4>
+            <ul>
+                <li>Cecina</li>
+                <li>Queso Casín</li>
+                <li>Sidra:
+                    <ul>
+                        <li>Sidra natural</li>
+                        <li>Sidra dulce</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <!-- Lista de definición -->
+            <h4>Definiciones gastronómicas:</h4>
+            <dl>
+                <dt>Fabada Asturiana</dt>
+                <dd>Un guiso tradicional asturiano a base de fabas (judías blancas), chorizo, morcilla, panceta y otros ingredientes.</dd>
+                
+                <dt>Sidra</dt>
+                <dd>Bebida alcohólica elaborada con manzanas, muy típica en Asturias.</dd>
+                
+                <dt>Arroz con Leche</dt>
+                <dd>Postre típico de la región que se elabora con arroz, leche, azúcar y canela.</dd>
+            </dl>
+
+            <!-- Tabla accesible y adaptable -->
+            <h4>Tabla de Platos y Bebidas:</h4>
+            <table id="tabla-gastronomia" border="1" cellpadding="10" cellspacing="0" style="width: 100%; border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <th>Plato/Bebida</th>
+                        <th>Descripción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Fabada Asturiana</td>
+                        <td>Plato de cuchara con fabas, chorizo, morcilla y panceta.</td>
+                    </tr>
+                    <tr>
+                        <td>Sidra</td>
+                        <td>Bebida alcohólica fermentada a base de manzanas.</td>
+                    </tr>
+                    <tr>
+                        <td>Chorizo a la Sidra</td>
+                        <td>Chorizo cocido en sidra, típico de la región.</td>
+                    </tr>
+                    <tr>
+                        <td>Arroz con Leche</td>
+                        <td>Postre a base de arroz, leche, azúcar y canela.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+    </main>
+
+</body>

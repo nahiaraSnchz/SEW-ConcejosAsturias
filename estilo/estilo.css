@@ -1,0 +1,164 @@
+/**
+    * ----------------------------------------
+    * Estilos generales
+    * ----------------------------------------
+    * Color de fondo: #f4f4f4
+    * Color sombreado titulos: #3498dba9
+    * Color titulos: #2f5f80
+    * Color link visitado: #0E3D5D
+**/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Calibri", sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4; /* Color de fondo */
+    color:#333; /* Color de la letra */
+    padding: 2em; /* Espaciado */
+    font-size: 1rem; /* Tamaño de la letra */
+}
+
+header {
+    color:black;
+    background-color: #2f5f80;
+    padding: 1rem;
+    text-align: left;
+}
+
+header h1 a {
+    color: white;
+}
+
+header h1 a:visited {
+    color: white;
+}
+
+header a {
+    color: white;
+    text-decoration: none;
+}
+
+header a:visited {
+    color: #c1effd; /* Color de la letra */
+}
+
+a {
+    color: #3498db; /* Color de la letra */
+    text-decoration: none; /* Sin subrayado */
+}
+
+a:hover {
+    text-decoration: underline; /* Subrayado al pasar el mouse */
+}
+
+a:visited {
+    color: #2f5f80; /* Color de la letra */
+}
+
+
+header + p:first-of-type {
+    font-size:0.9em;
+    padding-top: 1em;
+    padding-left: 0.5em;
+}
+
+h2 {
+    text-align: left; /* Centrar texto */
+    font-size: 2rem; /* Tamaño de la letra */
+    padding: 1rem; /* Espaciado */
+}
+
+h3{
+    color: #2f5f80; /* Color de la letra */
+    font-size: 1.5rem; /* Tamaño de la letra */ 
+    margin-bottom: 1rem; /* Espaciado */
+}
+
+h4 {
+    font-size: 1.25rem; /* Tamaño de la letra */
+    margin-top: 2rem; /* Espaciado */
+    margin-bottom: 1rem; /* Espaciado */
+}
+
+p {
+    font-size: 1.125rem; /* Tamaño de la letra */
+    margin-bottom: 2rem; /* Espaciado */
+    line-height: 1.80; /* Interlineado */
+}
+
+section {
+    background-color: #fff;
+    border-radius: 1rem; /* Bordes redondeados */
+    box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.1); /* Sombra */
+    padding-left: 1.5rem; /* Espaciado */
+    padding-top: 2em;
+}
+
+ol, ul {
+    margin-left: 2rem;
+    font-size: 1.125rem;
+}
+
+ol {
+    list-style-type: decimal; /* Numeración en la lista ordenada */
+}
+
+ul {
+    list-style-type: disc; /* Puntos en la lista no ordenada */
+}
+
+ul ul {
+    margin-top: 0.5rem;
+    list-style-type: circle; /* Sublista con círculos */
+    margin-left: 2rem;
+}
+
+dl {
+    margin-left: 2rem;
+    font-size: 1.125rem;
+}
+
+dt {
+    font-weight: bold;
+    font-size: 1.25rem;
+}
+
+dd {
+    margin-bottom: 1rem;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 2rem;
+}
+
+table th, table td {
+    padding: 1rem;
+    text-align: left;
+    font-size: 1.125rem;
+    border: 1px solid #ccc;
+}
+
+table th {
+    background-color: #2f5f80;
+    color: white;
+}
+
+table td {
+    background-color: #f9f9f9;
+}
+
+table tr:nth-child(even) td {
+    background-color: #f4f4f4;
+}
+
+table td:first-child {
+    font-weight: bold;
+}
+

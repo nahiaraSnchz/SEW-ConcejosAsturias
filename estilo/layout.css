@@ -1,0 +1,22 @@
+/*Nahiara Sánchez García UO295645*/
+
+/*Especificidad 001 */
+header {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+/*Especificidad 001 */
+nav {
+    padding-bottom: 1em;
+}
+
+nav a {
+    padding-left: 1em;
+    padding-right: 1em;
+}
