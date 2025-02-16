@@ -182,7 +182,7 @@ video {
 /* Ajustes para pantallas más pequeñas */
 @media (max-width: 480px) {
     video {
-        max-width: 20em; /* Reduce el tamaño en móviles */
+        max-width: 10em; /* Reduce el tamaño en móviles */
         width: 10%;
     }
 }
