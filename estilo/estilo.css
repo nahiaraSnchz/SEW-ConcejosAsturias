@@ -132,33 +132,37 @@ dd {
     margin-bottom: 1rem;
 }
 
-table {
+#tabla-gastronomia {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 2rem;
+    margin-top: 1rem;
 }
 
-table th, table td {
-    padding: 1rem;
+#tabla-gastronomia caption {
     text-align: left;
-    font-size: 1.125rem;
-    border: 1px solid #ccc;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #2f5f80;
 }
 
-table th {
+#tabla-gastronomia th, #tabla-gastronomia td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+}
+
+#tabla-gastronomia th {
     background-color: #2f5f80;
     color: white;
-}
-
-table td {
-    background-color: #f9f9f9;
-}
-
-table tr:nth-child(even) td {
-    background-color: #f4f4f4;
-}
-
-table td:first-child {
     font-weight: bold;
+}
+
+#tabla-gastronomia td:first-child {
+    font-weight: bold;
+}
+
+#tabla-gastronomia tr:nth-child(even) {
+    background-color: #f4f4f4;
 }
 
