@@ -170,20 +170,13 @@ dd {
     background-color: #f4f4f4;
 }
 
+/* ESPECIFICIDAD: 001 */
 video {
-    width: 30%; 
-    max-width: 25em; /* Máximo de 25em para evitar que sea demasiado grande */
-    min-width: 20em; /* Mínimo de 20em para evitar que sea demasiado pequeño */
-    height: auto; /* Mantiene la proporción */
-    display: block; /* Evita espacios extra */
-    margin: 0 auto; /* Centra el video */
-}
-
-/* Ajustes para pantallas más pequeñas */
-@media (max-width: 480px) {
-    video {
-        max-width: 10em; /* Reduce el tamaño en móviles */
-        width: 90%;
-        padding-right: 1em;
-    }
-}
+    width: 100%;
+    height: auto;
+  }
+  
+  /* ESPECIFICIDAD: 001 */
+  audio {
+    width: 50%; 
+  }
