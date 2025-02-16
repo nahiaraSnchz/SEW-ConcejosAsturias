@@ -24,3 +24,15 @@ nav a {
     padding-left: 1em;
     padding-right: 1em;
 }
+
+/* Media query para pantallas pequeñas */
+@media (max-width: 465px) {
+    header {
+        padding-left: 0.5em;
+        padding-right: 0.5em;
+    }
+
+    h1 {
+        font-size: 4rem; /* Ajustar tamaño en pantallas pequeñas */
+    }
+}
