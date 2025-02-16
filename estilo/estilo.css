@@ -183,6 +183,6 @@ video {
 @media (max-width: 480px) {
     video {
         max-width: 20em; /* Reduce el tamaño en móviles */
-        width: 30%;
+        width: 10%;
     }
 }
