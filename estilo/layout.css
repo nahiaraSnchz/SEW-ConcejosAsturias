@@ -16,6 +16,10 @@ nav {
     padding-bottom: 1em;
 }
 
+header, nav {
+    max-width: 100%;
+}
+
 nav a {
     padding-left: 1em;
     padding-right: 1em;
