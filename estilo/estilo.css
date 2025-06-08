@@ -230,8 +230,8 @@ video {
 
 main > article {
     position: relative;
-    width: 500px;
-    height: 400px;
+    width: 31.25em;  /* 500px / 16px = 31.25em */
+    height: 25em; 
     overflow: hidden;
     margin: 0 auto;
 }
