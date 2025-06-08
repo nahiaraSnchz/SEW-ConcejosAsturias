@@ -1,7 +1,7 @@
 class NoticiasGrado {
   constructor() {
-    this.url = 'https://www.lne.es/grado/';
     this.maxNoticias = 5;
+    this.apiKey = 'pub_c13fffda137d4f1b9bf5702bca9044c4';  // Pon aquí tu API Key real
   }
 
   iniciar() {
@@ -11,47 +11,46 @@ class NoticiasGrado {
 
   crearSeccionNoticias() {
     this.$seccion = $('<section>');
-    const $titulo = $('<h3>').text('Noticias del concejo de Grado (LNE)');
+    const $titulo = $('<h3>').text('Noticias del concejo de Grado (Asturias) o alrededores');
     this.$seccion.append($titulo);
     $('main').after(this.$seccion);
   }
 
   cargarNoticias() {
-    const proxy = 'https://thingproxy.freeboard.io/fetch/';
+    const url = `https://newsdata.io/api/1/latest?apikey=pub_c13fffda137d4f1b9bf5702bca9044c4&q=grado%2C%20asturias`;
+
     $.ajax({
-      url: proxy + encodeURIComponent(this.url),
+      url: url,
       method: 'GET',
       dataType: 'json',
       success: (response) => {
-        const html = response.contents;
-        const $doc = $('<div>').html(html);
-
-        // Nuevo selector más probable para las noticias
-        const $noticias = $doc.find('article.mod-newslist-item').slice(0, this.maxNoticias);
-
-        if ($noticias.length === 0) {
+        if (!response.results || response.results.length === 0) {
           this.$seccion.append('<p>No se encontraron noticias recientes.</p>');
           return;
         }
 
-        $noticias.each((_, elem) => {
-          const $elem = $(elem);
-          const titulo = $elem.find('h3 a').text().trim() || $elem.find('h2 a').text().trim();
-          const enlace = $elem.find('h3 a').attr('href') || $elem.find('h2 a').attr('href');
-
+        const noticias = response.results.slice(0, this.maxNoticias);
+        noticias.forEach(noticia => {
           const $article = $('<article>');
+          const titulo = noticia.title || 'Sin título';
+          const descripcion = noticia.description || '';
+          const enlace = noticia.link || '#';
+          const fecha = noticia.pubDate ? new Date(noticia.pubDate).toLocaleString() : '';
+
           const $h4 = $('<h4>').text(titulo);
           const $a = $('<a>')
-            .attr('href', enlace.startsWith('http') ? enlace : 'https://www.lne.es' + enlace)
+            .attr('href', enlace)
             .attr('target', '_blank')
             .text('Leer más');
+          const $p = $('<p>').text(descripcion);
+          const $small = $('<small>').text(fecha);
 
-          $article.append($h4, $a);
+          $article.append($h4, $p, $a, $small);
           this.$seccion.append($article);
         });
       },
       error: () => {
-        this.$seccion.append('<p>Error al cargar las noticias desde LNE.</p>');
+        this.$seccion.append('<p>Error al cargar las noticias desde Newsdata.io.</p>');
       }
     });
   }
