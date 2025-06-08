@@ -1,21 +1,25 @@
 <!DOCTYPE html>
-
 <html lang="es">
 <head>
     <!-- Metadatos -->
     <meta charset="UTF-8" />
     <meta name="author" content="Nahiara Sánchez García" />
-    <meta name="description" content="Página web de los concejos de Asturias" />
-    <meta name="keywords" content="concejos, asturias, turismo, cultura, gastronomía, ayuda" />
+    <meta name="description" content="Rutas de Asturias" />
+    <meta name="keywords" content="rutas, asturias, senderismo, turismo" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>ConcejosAsturias</title>
+    <title>ConcejosAsturias-Rutas</title>
 
     <!-- Enlaces -->
     <link rel="stylesheet" type="text/css" href="estilo/estilo.css" />
     <link rel="stylesheet" type="text/css" href="estilo/layout.css" />
     <link rel="icon" href="multimedia/favicon.ico" />
 
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <!-- Script principal -->
+    <script type="module" src="js/Index.js"></script>
+    <script type="module" src="js/Noticias.js"></script>
 </head>
 
 <body>
@@ -32,5 +36,27 @@
         </nav>
     </header>
 
-    <p>Estás en: <a href="index.html" title="Página Inicio">Inicio</a> > Index</p>
+    <p>Estás en: <a href="index.html" title="Página Inicio">Inicio</a> > Rutas</p>
+
+    <main>
+        <h1>Turismo en el concejo</h1>
+
+        <br>
+
+        <!-- Carrusel -->
+        <article>
+            <img src="multimedia/images/mapa_grado_ordenador.png" alt="Mapa del concejo">
+            <img src="multimedia/images/ayuntamiento.jpg" alt="Recurso 1">
+            <img src="multimedia/images/mariposas.jpg" alt="Recurso 2">
+            <img src="multimedia/images/palacio.jpg" alt="Recurso 3">
+            <img src="multimedia/images/iglesia.jpg" alt="Recurso 4">
+            <button>Siguiente</button>
+            <button>Anterior</button>
+        </article>        
+    </main>
+
+    <!-- Noticias -->
+    
+
 </body>
+</html>

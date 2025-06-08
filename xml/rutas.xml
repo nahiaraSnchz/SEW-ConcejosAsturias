@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE rutas SYSTEM "rutas.dtd">
+
+<rutas>
+    <!--Primera ruta-->
+    <ruta id="1" nombre="Visita por Grado" tipo="Cultural">
+        <medio_transporte>A pie</medio_transporte>
+        <fecha_inicio>2025-07-20</fecha_inicio>
+        <hora_inicio>09:00</hora_inicio>
+
+        <duracion>2 horas</duracion>
+        <agencia>Sin agencia</agencia>
+        <descripcion>Ruta sencilla y accesible a lo largo del concejo de Grado, ideal para paseos familiares. El camino discurre por zonas culturales y zonas verdes.</descripcion>
+        <personas_adecuadas>Adultos y niños</personas_adecuadas>
+
+        <inicio>
+            <lugar>Parque de San Antonio</lugar>
+            <direccion>Parque de San Antonio, Grado</direccion>
+            <coordenadas>
+                <latitud>43,3907191</latitud>
+                <longitud>-6,0684194</longitud>
+                <altitud>59</altitud>
+            </coordenadas>
+        </inicio>
+
+        <referencias>
+            <referencia>https://www.mundiplus.com/blog/que-ver-en-grado/#monumentos-historicos-un-paseo-por-el-patrimonio-de-grado</referencia>
+            <referencia>https://www.ayto-grado.es/e-monumentos-parque</referencia>
+            <referencia>https://luislafuente.jimdofree.com/jardin-de-mariposas-y-polinizadores/</referencia>
+        </referencias>
+
+        <recomendacion>9</recomendacion>
+
+        <hitos>
+            <hito>
+                <nombre>Parque de San Antonio</nombre>
+                <descripcion>Zona de aparcamiento y área recreativa junto parque de San Antonio.</descripcion>
+                <coordenadas>
+                    <latitud>43.3907191</latitud>
+                    <longitud>-6.0684194</longitud>
+                    <altitud>59</altitud>
+                </coordenadas>
+                <distancia unidad="km">0.0</distancia>
+                <fotos>
+                    <foto>parque.jpg</foto>
+                </fotos>
+            </hito>
+
+            <hito>
+                <nombre>Palacio de Miranda-Valdecarzana</nombre>
+                <descripcion>Monumento Histórico Artístico, de origen medieval.</descripcion>
+                <coordenadas>
+                    <latitud>43.3900026</latitud>
+                    <longitud>-6.0681758</longitud>
+                    <altitud>63</altitud>
+                </coordenadas>
+                <distancia unidad="m">84</distancia>
+                <fotos>
+                    <foto>palacio.jpg</foto>
+                </fotos>
+                <videos>
+                    <video>puente_penaflor.mp4</video>
+                </videos>
+            </hito>
+
+            <hito>
+                <nombre>Ayuntamiento de Grado</nombre>
+                <descripcion>Edificio de planta rectangular de tres pisos, con una torre donde se encuentra el reloj.</descripcion>
+                <coordenadas>
+                    <latitud>43.3894548</latitud>
+                    <longitud>-6.0682056</longitud>
+                    <altitud>60</altitud>
+                </coordenadas>
+                <distancia unidad="m">36.1</distancia>
+                <fotos>
+                    <foto>ayuntamiento.jpg</foto>
+                </fotos>
+            </hito>
+
+            <hito>
+                <nombre>Iglesia de San Pedro</nombre>
+                <descripcion>Edificio de estilo ecléctico, con elementos inspirados en el estilo romántico y gótico.</descripcion>
+                <coordenadas>
+                    <latitud>43.3892176</latitud>
+                    <longitud>-6.0698532</longitud>
+                    <altitud>69</altitud>
+                </coordenadas>
+                <distancia unidad="m">137.80</distancia>
+                <fotos>
+                    <foto>iglesia.jpg</foto>
+                </fotos>
+            </hito>
+
+            <hito>
+                <nombre>Plaza General Ponte</nombre>
+                <descripcion>Centro de vida comercial y social de Grado.</descripcion>
+                <coordenadas>
+                    <latitud>43.3890775</latitud>
+                    <longitud>-6.0688043</longitud>
+                    <altitud>63</altitud>
+                </coordenadas>
+                <distancia unidad="m">87</distancia>
+                <fotos>
+                    <foto>ponte.jpg</foto>
+                </fotos>
+            </hito>
+
+            <hito>
+                <nombre>Jardín mariposas</nombre>
+                <descripcion>Situado a las orillas del río Cubia, es un espacio natural donde se pueden observar diversas especies de insectos.</descripcion>
+                <coordenadas>
+                    <latitud>43.3866248</latitud>
+                    <longitud>-6.0663063</longitud>
+                    <altitud>56</altitud>
+                </coordenadas>
+                <distancia unidad="m">346.25</distancia>
+                <fotos>
+                    <foto>mariposas.jpg</foto>
+                </fotos>
+            </hito>
+        </hitos>
+
+        <planimetria archivo_kml="planimetria_visita_grado.kml" />
+        <altimetria archivo_svg="altimetria_visita_grado.svg" />
+    </ruta> 
+
+    <!-- Segunda ruta -->
+    <ruta id="2" nombre="Visita rural Grado" tipo="Senderismo">
+        <medio_transporte>Coche</medio_transporte>
+        <fecha_inicio>2025-08-10</fecha_inicio>
+        <hora_inicio>08:30</hora_inicio>
+
+        <duracion>5 horas</duracion>
+        <agencia>Sin agencia</agencia>
+        <descripcion>Ruta histórica de alta montaña que transcurre por paisajes de montaña y antiguos caminos empedrados. Ideal para personas en busca de historia y naturaleza.</descripcion>
+        <personas_adecuadas>Senderistas con buena condición física y experiencia</personas_adecuadas>
+
+        <inicio>
+            <lugar>Iglesia de San Cosme y San Damian</lugar>
+            <direccion>Lugar Tolinas, Grado, Asturias</direccion>
+            <coordenadas>
+                <latitud>43.2285930</latitud>
+                <longitud>-6.1776150</longitud>
+                <altitud>658</altitud>
+            </coordenadas>
+        </inicio>
+
+        <referencias>
+            <referencia>https://grado.vivirasturias.com/patrimonio-religioso/c/0/i/59910083/iglesia-san-cosme-san-damian-tolinas</referencia>
+            <referencia>https://es.wikipedia.org/wiki/Villamar%C3%ADn_(Grado)</referencia>
+            <referencia>https://listaroja.hispanianostra.org/ficha/ermita-de-san-roque-2/</referencia>
+        </referencias>
+
+        <recomendacion>8</recomendacion>
+
+        <hitos>
+            <hito>
+                <nombre>Iglesia de San Cosme y San Damian</nombre>
+                <descripcion>Iglesia situada a pocos metros de Tolinas y Las Villas.</descripcion>
+                <coordenadas>
+                    <latitud>43.2285930</latitud>
+                    <longitud>-6.1776150</longitud>
+                    <altitud>658</altitud>
+                </coordenadas>
+                <distancia unidad="km">0.0</distancia>
+                <fotos>
+                    <foto>iglesia_cosme.jpg</foto>
+                </fotos>
+            </hito>
+
+            <hito>
+                <nombre>Villamarin</nombre>
+                <descripcion>Se asienta a media ladera, en la vertiente occidental de la cuenca alta del Río Cubia orientado al sureste, a una altura de 550-600 m.</descripcion>
+                <coordenadas>
+                    <latitud>43.2619803</latitud>
+                    <longitud>-6.1575648</longitud>
+                    <altitud>587</altitud>
+                </coordenadas>
+                <distancia unidad="km">3.9</distancia>
+                <fotos>
+                    <foto>villamarin.jpg</foto>
+                </fotos>
+            </hito>
+
+            <hito>
+                <nombre>Iglesia Villamarín de Salcedo</nombre>
+                <descripcion>Parroquia localizada en el área meridional del municipio. Obra del siglo XVIII.</descripcion>
+                <coordenadas>
+                    <latitud>43.2659625</latitud>
+                    <longitud>-6.1571865</longitud>
+                    <altitud>629</altitud>
+                </coordenadas>
+                <distancia unidad="m">424.5</distancia>
+                <fotos>
+                    <foto>iglesia_villamarin.jpg</foto>
+                </fotos>
+            </hito>
+
+            <hito>
+                <nombre>Ermita de San Roque</nombre>
+                <descripcion>Paso natural entre Asturias y León, con panorámicas de la cordillera cantábrica.</descripcion>
+                <coordenadas>
+                    <latitud>43.2769059</latitud>
+                    <longitud>-6.1611732</longitud>
+                    <altitud>721</altitud>
+                </coordenadas>
+                <distancia unidad="km">1.285</distancia>
+                <fotos>
+                    <foto>ermita.jpg</foto>
+                </fotos>
+            </hito>
+
+            <hito>
+                <nombre>Santianes</nombre>
+                <descripcion>Final del tramo con bajada hacia la localidad leonesa de Torrestío, rodeada de pastizales.</descripcion>
+                <coordenadas>
+                    <latitud>43.2950712</latitud>
+                    <longitud>-6.1502779</longitud>
+                    <altitud>596</altitud>
+                </coordenadas>
+                <distancia unidad="km">2.300</distancia>
+                <fotos>
+                    <foto>santianes.jpg</foto>
+                </fotos>
+            </hito>
+
+        </hitos>
+
+        <planimetria archivo_kml="planimetria_grado_rural.kml" />
+        <altimetria archivo_svg="altimetria_grado_rural.svg" />
+    </ruta>
+
+  <!-- Tercera ruta -->
+  <ruta id="3" nombre="Camino de Santiago - Etapa Grado a Salas" tipo="Mixta tapas y monumentos">
+        <medio_transporte>A pie</medio_transporte>
+        <fecha_inicio>2025-06-04</fecha_inicio>
+        <hora_inicio>08:00</hora_inicio>
+
+        <duracion>6 horas</duracion>
+        <agencia>Sin agencia</agencia>
+        <descripcion>Tramo del Camino Primitivo desde Grado hasta Salas, pasando por pueblos rurales asturianos, hórreos, capillas y paisajes verdes. Ideal para amantes del senderismo con valor cultural e histórico.</descripcion>
+        <personas_adecuadas>Personas en buena forma física</personas_adecuadas>
+        
+        <inicio>
+            <lugar>Plaza General Ponte (Grado)</lugar>
+            <direccion>Centro de Grado</direccion>
+            <coordenadas>
+                <latitud>43.3836</latitud>
+                <longitud>-6.0722</longitud>
+                <altitud>60</altitud>
+            </coordenadas>
+        </inicio>
+
+        <referencias>
+        <referencia>https://caminodesantiago.gal</referencia>
+        <referencia>https://www.grado.es/turismo</referencia>
+        <referencia>https://es.wikipedia.org/wiki/Camino_Primitivo</referencia>
+        </referencias>
+
+        <recomendacion>8</recomendacion>
+
+        <hitos>
+            <hito>
+                <nombre>Plaza General Ponte</nombre>
+                <descripcion>Punto de partida, centro histórico de Grado.</descripcion>
+                <coordenadas>
+                    <latitud>43.3836</latitud>
+                    <longitud>-6.0722</longitud>
+                    <altitud>60</altitud>
+                </coordenadas>
+                <distancia unidad="km">0</distancia>
+
+                <fotos>
+                    <foto>grado1.jpg</foto>
+                </fotos>
+            </hito>
+
+            <hito>
+                <nombre>Capilla de San Pelayo</nombre>
+                <descripcion>Capilla histórica entre prados.</descripcion>
+                <coordenadas>
+                    <latitud>43.3600</latitud>
+                    <longitud>-6.1050</longitud>
+                    <altitud>200</altitud>
+                </coordenadas>
+                <distancia unidad="km">5</distancia>
+
+                <fotos>
+                    <foto>pelayo.jpg</foto>
+                </fotos>
+            </hito>
+
+            <hito>
+                <nombre>Puente medieval sobre el Narcea</nombre>
+                <descripcion>Puente de piedra usado por peregrinos durante siglos.</descripcion>
+                <coordenadas>
+                    <latitud>43.3500</latitud>
+                    <longitud>-6.1230</longitud>
+                    <altitud>170</altitud>
+                </coordenadas>
+                <distancia unidad="km">3</distancia>
+
+                <fotos>
+                    <foto>puente.jpg</foto>
+                </fotos>
+            </hito>
+
+            <hito>
+                <nombre>La Doriga</nombre>
+                <descripcion>Pequeño pueblo con arquitectura tradicional asturiana.</descripcion>
+                <coordenadas>
+                    <latitud>43.3330</latitud>
+                    <longitud>-6.1470</longitud>
+                    <altitud>210</altitud>
+                </coordenadas>
+                <distancia unidad="km">4</distancia>
+
+                <fotos>
+                    <foto>doriga.jpg</foto>
+                </fotos>
+            </hito>
+
+            <hito>
+                <nombre>Sama de Grado</nombre>
+                <descripcion>Villa medieval con palacio, torre y ambiente jacobeo.</descripcion>
+                <coordenadas>
+                    <latitud>43.3129860</latitud>
+                    <longitud>-6.0199469</longitud>
+                    <altitud>380</altitud>
+                </coordenadas>
+                <distancia unidad="km">10</distancia>
+
+                <fotos>
+                    <foto>salas1.jpg</foto>
+                    <foto>salas2.jpg</foto>
+                </fotos>
+
+            </hito>
+
+            <hito>
+                <nombre>Mojón jacobeo de Pereda</nombre>
+                <descripcion>Mojón señalizador del Camino Primitivo rodeado de paisaje agrícola.</descripcion>
+                <coordenadas>
+                    <latitud>43.3550</latitud>
+                    <longitud>-6.1120</longitud>
+                    <altitud>180</altitud>
+                </coordenadas>
+                <distancia unidad="km">19</distancia>
+                <fotos>
+                    <foto>mojon_pereda.jpg</foto>
+                </fotos>
+            </hito>
+
+            <hito>
+                <nombre>Hórreo tradicional asturiano</nombre>
+                <descripcion>Ejemplo bien conservado de hórreo de madera junto a la ruta, con decoración.</descripcion>
+                <coordenadas>
+                    <latitud>43.3400</latitud>
+                    <longitud>-6.1350</longitud>
+                    <altitud>190</altitud>
+                </coordenadas>
+                <distancia unidad="km">3.8</distancia>
+                <fotos>
+                    <foto>horreo_camino.jpg</foto>
+                </fotos>
+            </hito>
+        </hitos>
+
+        <planimetria archivo_kml="planimetria_camino_santiago.kml"/>
+        <altimetria archivo_svg="altimetria_camino_santiago.svg"/>
+    </ruta>
+
+</rutas>
+        
+
+    
