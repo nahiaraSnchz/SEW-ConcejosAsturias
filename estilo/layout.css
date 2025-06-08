@@ -34,4 +34,13 @@ nav a {
     h1 {
         font-size: 2rem; /* Ajustar tamaño en pantallas pequeñas */
     }
+
+    main > article {
+        position: relative;
+        width: 100%;
+        max-width: 90vw;
+        aspect-ratio: 5 / 4;
+        overflow: hidden;
+        margin: 0 auto;
+    }
 }
