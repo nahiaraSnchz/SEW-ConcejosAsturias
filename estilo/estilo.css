@@ -129,6 +129,49 @@ section {
     /* Advertencia: Hereda color de fuente de body */
 }
 
+/*Especificidad 100 */
+body section table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+/*Especificidad 101 */
+body section table caption {
+    text-align: left;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #2f5f80;
+
+    /* Advertencia: Hereda color de fondo de body */
+}
+
+/*Especificidad 202 */
+body section table th, body section table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+}
+
+/*Especificidad 101 */
+body section table th {
+    background-color: #2f5f80;
+    color: white;
+    font-weight: bold;
+}
+
+/*Especificidad 102 */
+body section table td:first-child {
+    font-weight: bold;
+}
+
+/*Especificidad 102 */
+body section table tr:nth-child(even) {
+    background-color: #f4f4f4;
+    /* Advertencia: Hereda color de fuente de body */
+}
+
 /*Especificidad 002 */
 ol, ul {
     margin-left: 2rem;
@@ -169,48 +212,7 @@ dd {
     margin-bottom: 1rem;
 }
 
-/*Especificidad 100 */
-#tabla-gastronomia {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 1rem;
-}
 
-/*Especificidad 101 */
-#tabla-gastronomia caption {
-    text-align: left;
-    font-size: 1.2rem;
-    font-weight: bold;
-    margin-bottom: 0.5rem;
-    color: #2f5f80;
-
-    /* Advertencia: Hereda color de fondo de body */
-}
-
-/*Especificidad 202 */
-#tabla-gastronomia th, #tabla-gastronomia td {
-    border: 1px solid #ccc;
-    padding: 10px;
-    text-align: left;
-}
-
-/*Especificidad 101 */
-#tabla-gastronomia th {
-    background-color: #2f5f80;
-    color: white;
-    font-weight: bold;
-}
-
-/*Especificidad 102 */
-#tabla-gastronomia td:first-child {
-    font-weight: bold;
-}
-
-/*Especificidad 102 */
-#tabla-gastronomia tr:nth-child(even) {
-    background-color: #f4f4f4;
-    /* Advertencia: Hereda color de fuente de body */
-}
 
 /*Especificidad 001 */
 video {
@@ -267,4 +269,19 @@ main > article > button:nth-of-type(1) {
 
 main > article > button:nth-of-type(2) {
     left: 10px;
+}
+
+/* ESTILOS PARA RUTAS */
+
+article > img {
+    max-width: 20vw;
+    margin: 0.3em;
+}
+
+article > video {
+    display: block;
+    margin: 0.3em;
+    margin-bottom: 1em;
+    max-width: 20vw;
+    height: auto;
 }

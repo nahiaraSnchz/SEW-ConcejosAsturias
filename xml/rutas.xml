@@ -17,8 +17,8 @@
             <lugar>Parque de San Antonio</lugar>
             <direccion>Parque de San Antonio, Grado</direccion>
             <coordenadas>
-                <latitud>43,3907191</latitud>
-                <longitud>-6,0684194</longitud>
+                <latitud>43.3907191</latitud>
+                <longitud>-6.0684194</longitud>
                 <altitud>59</altitud>
             </coordenadas>
         </inicio>
@@ -120,9 +120,9 @@
             </hito>
         </hitos>
 
-        <planimetria archivo_kml="planimetria_visita_grado.kml" />
-        <altimetria archivo_svg="altimetria_visita_grado.svg" />
-    </ruta> 
+        <planimetria archivo_kml="xml/planimetria_ruta_1.kml" />
+        <altimetria archivo_svg="xml/altimetria_ruta_1.svg" />
+    </ruta>
 
     <!-- Segunda ruta -->
     <ruta id="2" nombre="Visita rural Grado" tipo="Senderismo">
@@ -226,8 +226,8 @@
 
         </hitos>
 
-        <planimetria archivo_kml="planimetria_grado_rural.kml" />
-        <altimetria archivo_svg="altimetria_grado_rural.svg" />
+        <planimetria archivo_kml="xml/planimetria_ruta_2.kml" />
+        <altimetria archivo_svg="xml/altimetria_ruta_2.svg" />
     </ruta>
 
   <!-- Tercera ruta -->
@@ -366,8 +366,8 @@
             </hito>
         </hitos>
 
-        <planimetria archivo_kml="planimetria_camino_santiago.kml"/>
-        <altimetria archivo_svg="altimetria_camino_santiago.svg"/>
+        <planimetria archivo_kml="xml/planimetria_ruta_3.kml"/>
+        <altimetria archivo_svg="xml/altimetria_ruta_3.svg"/>
     </ruta>
 
 </rutas>

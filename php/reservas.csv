@@ -1,0 +1,4 @@
+id_reserva;id_usuario;id_recurso;fecha_reserva;confirmada;total_precio
+1;1;1;"2025-06-10 09:00:00";1;12,5
+2;2;3;"2026-06-12 10:30:00";0;5
+3;2;5;"2025-06-12 10:55:03";0;8,00

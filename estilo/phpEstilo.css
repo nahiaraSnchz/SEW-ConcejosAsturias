@@ -1,0 +1,287 @@
+/**
+    * ----------------------------------------
+    * Estilos generales
+    * ----------------------------------------
+    * Color de fondo: #f4f4f4
+    * Color sombreado titulos: #3498dba9
+    * Color titulos: #2f5f80
+    * Color link visitado: #0E3D5D
+**/
+
+/*Especificidad 000 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*Especificidad 001 */
+body {
+    font-family: "Calibri", sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4; /* Color de fondo */
+    color:#333; /* Color de la letra */
+    padding: 2em; /* Espaciado */
+    font-size: 1rem; /* Tamaño de la letra */
+}
+
+/*Especificidad 001 */
+header {
+    color:black;
+    background-color: #2f5f80;
+    padding: 1rem;
+    text-align: left;
+}
+
+/*Especificidad 010 */
+.active {
+    text-decoration: underline;
+}
+
+/*Especificidad 003 */
+header h1 a {
+    color: white;
+    /* Advertencia: Hereda color de fondo de header */
+}
+
+/*Especificidad 004 */
+header h1 a:visited {
+    color: white;
+    /* Advertencia: Hereda color de fondo de header */
+}
+
+/*Especificidad 002 */
+header a {
+    color: white;
+    text-decoration: none;
+    /* Advertencia: Hereda color de fondo de header */
+}
+
+/*Especificidad 003 */
+header a:visited {
+    color: #c1effd; /* Color de la letra */
+    /* Advertencia: Hereda color de fondo de header */
+}
+
+/*Especificidad 001 */
+a {
+    color: #3498db; /* Color de la letra */
+    text-decoration: none; /* Sin subrayado */
+    /* Advertencia: Hereda color de fondo de header o body*/
+}
+
+/*Especificidad 002 */
+a:hover {
+    text-decoration: underline; /* Subrayado al pasar el mouse */
+    /* Advertencia: Hereda color de fondo de header o body*/
+}
+
+/*Especificidad 002 */
+a:visited {
+    color: #2f5f80; /* Color de la letra */
+}
+
+/*Especificidad 003 */
+header + p:first-of-type {
+    font-size:0.9em;
+    padding-top: 1em;
+    padding-left: 0.5em;
+}
+
+/*Especificidad 001 */
+h2 {
+    text-align: left; /* Centrar texto */
+    font-size: 2rem; /* Tamaño de la letra */
+    padding: 1rem; /* Espaciado */
+}
+
+/*Especificidad 001 */
+h3{
+    color: #2f5f80; /* Color de la letra */
+    font-size: 1.5rem; /* Tamaño de la letra */ 
+    margin-bottom: 1rem; /* Espaciado */
+
+    /* Advertencia: Hereda color de fondo de body */
+}
+
+/*Especificidad 001 */
+h4 {
+    font-size: 1.25rem; /* Tamaño de la letra */
+    margin-top: 2rem; /* Espaciado */
+    margin-bottom: 1rem; /* Espaciado */
+}
+
+/*Especificidad 001 */
+p {
+    font-size: 1.125rem; /* Tamaño de la letra */
+    margin-bottom: 2rem; /* Espaciado */
+    line-height: 1.80; /* Interlineado */
+}
+
+/*Especificidad 001 */
+section {
+    background-color: #fff;
+    border-radius: 1rem; /* Bordes redondeados */
+    box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.1); /* Sombra */
+    padding-left: 1.5rem; /* Espaciado */
+    padding-top: 2em;
+
+    /* Advertencia: Hereda color de fuente de body */
+}
+
+/*Especificidad 100 */
+body section table {
+    width: 90%;
+    border-collapse: collapse;
+    margin: 1rem 0 3rem 0
+}
+
+/*Especificidad 101 */
+body section table caption {
+    text-align: left;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #2f5f80;
+
+    /* Advertencia: Hereda color de fondo de body */
+}
+
+/*Especificidad 202 */
+body section table th, body section table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+}
+
+/*Especificidad 101 */
+body section table th {
+    background-color: #2f5f80;
+    color: white;
+    font-weight: bold;
+}
+
+/*Especificidad 102 */
+body section table td:first-child {
+    font-weight: bold;
+}
+
+/*Especificidad 102 */
+body section table tr:nth-child(even) {
+    background-color: #f4f4f4;
+    /* Advertencia: Hereda color de fuente de body */
+}
+
+/*Especificidad 002 */
+ol, ul {
+    margin-left: 2rem;
+    font-size: 1.125rem;
+}
+
+/*Especificidad 001 */
+ol {
+    list-style-type: decimal; /* Numeración en la lista ordenada */
+}
+
+/*Especificidad 001 */
+ul {
+    list-style-type: disc; /* Puntos en la lista no ordenada */
+}
+
+/*Especificidad 001 */
+ul ul {
+    margin-top: 0.5rem;
+    list-style-type: circle; /* Sublista con círculos */
+    margin-left: 2rem;
+}
+
+/*Especificidad 001 */
+dl {
+    margin-left: 2rem;
+    font-size: 1.125rem;
+}
+
+/*Especificidad 001 */
+dt {
+    font-weight: bold;
+    font-size: 1.25rem;
+}
+
+/*Especificidad 001 */
+dd {
+    margin-bottom: 1rem;
+}
+
+
+
+/*Especificidad 001 */
+video {
+    width: 100%;
+    height: auto;
+  }
+  
+/*Especificidad 001 */
+  audio {
+    width: 50%; 
+  }
+
+
+
+/* ESTILOS PARA EL CARRUSEL */
+
+
+main > article {
+    position: relative;
+    width: 31.25em;  /* 500px / 16px = 31.25em */
+    height: 25em; 
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+main > article > img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+
+
+main > article > button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 1rem;
+    z-index: 10;
+}
+
+main > article > button:nth-of-type(1) {
+    right: 10px;
+}
+
+main > article > button:nth-of-type(2) {
+    left: 10px;
+}
+
+/* ESTILOS PARA RUTAS */
+
+article > img {
+    max-width: 20vw;
+    margin: 0.3em;
+}
+
+article > video {
+    display: block;
+    margin: 0.3em;
+    margin-bottom: 1em;
+    max-width: 20vw;
+    height: auto;
+}
