@@ -38,7 +38,7 @@ class Reserva {
      * Intenta crear una reserva.
      * Retorna array con ['success' => bool, 'message' => string]
      */
-    public function crearReserva(int $idUsuario, int $idRecurso, int $personas): array {
+    public function crearReserva(int $idUsuario, int $idRecurso, int $personas, string $fecha_inicio, string $fecha_fin, float $precioTotal): array {
         if ($personas < 1) {
             return ['success' => false, 'message' => 'Debe reservar al menos una persona.'];
         }
@@ -51,11 +51,11 @@ class Reserva {
             return ['success' => false, 'message' => "No hay suficientes plazas disponibles. Plazas disponibles: {$recurso['plazas']}."];
         }
 
-        $total = floatval($recurso['precio']) * $personas;
+        
         $fechaReserva = date('Y-m-d H:i:s');
 
-        $stmt = $this->mysqli->prepare("INSERT INTO reservas (id_usuario, id_recurso, fecha_reserva, confirmada, total_precio) VALUES (?, ?, ?, 1, ?)");
-        $stmt->bind_param("iisd", $idUsuario, $idRecurso, $fechaReserva, $total);
+        $stmt = $this->mysqli->prepare("INSERT INTO reservas (id_usuario, id_recurso, fecha_inicio, fecha_fin, confirmada, total_precio) VALUES (?, ?, ?, ?, 1, ?)");
+        $stmt->bind_param("iissd", $idUsuario, $idRecurso, $fecha_inicio, $fecha_fin, $precioTotal);
         if (!$stmt->execute()) {
             $stmt->close();
             return ['success' => false, 'message' => 'Error al insertar la reserva.'];
@@ -69,7 +69,7 @@ class Reserva {
         $stmt->execute();
         $stmt->close();
 
-        return ['success' => true, 'message' => "Reserva realizada correctamente. Total a pagar: €" . number_format($total, 2, ',', '.')];
+        return ['success' => true, 'message' => "Reserva realizada correctamente. Total a pagar: €" . number_format($precioTotal, 2, ',', '.')];
     }
 
     /**
@@ -78,7 +78,7 @@ class Reserva {
      */
     public function obtenerPorUsuario(int $idUsuario) {
         $stmt = $this->mysqli->prepare(
-            "SELECT r.id_reserva, r.id_usuario, r.id_recurso, r.fecha_reserva, r.confirmada, r.total_precio,
+            "SELECT r.id_reserva, r.id_usuario, r.id_recurso, r.fecha_inicio, r.fecha_fin, r.confirmada, r.total_precio,
                     rec.nombre AS nombre_recurso
             FROM reservas r
             JOIN recursos rec ON r.id_recurso = rec.id_recurso
@@ -143,5 +143,21 @@ class Reserva {
         $stmt->close();
 
         return ['success' => true, 'message' => 'Reserva cancelada correctamente.'];
+    }
+
+    public function validarFechas($fechaInicio, $fechaFin) {
+        $inicio = strtotime($fechaInicio);
+        $fin = strtotime($fechaFin);
+        if (!$inicio || !$fin) return false;  // fechas no válidas
+        if ($inicio > $fin) return false;     // inicio después de fin
+        // Puedes agregar más reglas aquí (ej. mínimo 1 día, no fechas pasadas, etc.)
+        return true;
+    }
+
+    public function calcularPrecio($precioBase, $fechaInicio, $fechaFin) {
+        $inicio = new DateTime($fechaInicio);
+        $fin = new DateTime($fechaFin);
+        $dias = $fin->diff($inicio)->days + 1;  // +1 para incluir día inicio
+        return $precioBase * $dias;
     }
 }

@@ -60,7 +60,7 @@ if (isset($_SESSION['user_id']) && $view === 'recursos') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ConcejosAsturias - Reservas</title>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <link rel="stylesheet" href="estilo/phpEstilo.css" />
+    <link rel="stylesheet" href="estilo/estilo.css" />
     <link rel="stylesheet" href="estilo/layout.css" />
     <link rel="icon" href="multimedia/favicon.ico" />
 </head>
@@ -114,7 +114,7 @@ if (!isset($_SESSION['user_id'])) {
 if ($view === 'recursos'):
 ?>
     <section>
-        <h1>Reservar Recursos Turísticos</h1>
+        <h3>Reservar Recursos Turísticos</h3>
         <p>Bienvenido, <?= htmlspecialchars($_SESSION['user_name']) ?> | 
            <a href="reservas.php?action=logout">Cerrar sesión</a></p>
 
@@ -126,13 +126,23 @@ if ($view === 'recursos'):
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['confirmar'])) {
             $idUsuario = $_SESSION['user_id'];
             $idRecurso = (int)$_POST['id_recurso'];
-            $personas = 1; // Por ahora siempre una persona
+            $fechaInicio = $_POST['fecha_inicio'];
+            $fechaFin = $_POST['fecha_fin'];
+            $personas = 1; // Si luego añades campo para personas, cambia aquí
 
-            $resultado = $reservaObj->crearReserva($idUsuario, $idRecurso, $personas);
+            $recursosObj = new Recursos($db);
+            $precioBase = $recursosObj->obtenerPrecio($idRecurso);
 
-            // Redirigir a la vista reservas
-            header('Location: reservas.php?view=reservas');
-            exit();
+            $precioTotal = $reservaObj->calcularPrecio($precioBase, $fechaInicio, $fechaFin);
+
+            $resultado = $reservaObj->crearReserva($idUsuario, $idRecurso, $personas, $fechaInicio, $fechaFin, $precioTotal);
+
+            if ($resultado['success'] === true) {
+                header('Location: reservas.php?view=reservas');
+                exit();
+            } else {
+                echo "<p>Error al crear reserva</p>";
+            }
         }
 
         // Obtener recurso seleccionado
@@ -155,12 +165,16 @@ if ($view === 'recursos'):
                 <ul>
                     <li><strong>Nombre:</strong> <?= htmlspecialchars($recursoSeleccionado['nombre']) ?></li>
                     <li><strong>Descripción:</strong> <?= htmlspecialchars($recursoSeleccionado['descripcion']) ?></li>
-                    <li><strong>Fecha inicio:</strong> <?= htmlspecialchars($recursoSeleccionado['fecha_inicio']) ?> </li>
-                    <li><strong>Fecha fin:</strong> <?= htmlspecialchars($recursoSeleccionado['fecha_fin']) ?></li>
-                    <li><strong>Precio:</strong> €<?= number_format($recursoSeleccionado['precio'], 2, ',', '.') ?></li>
+                    <li><strong>Precio de un día:</strong> €<?= number_format($recursoSeleccionado['precio'], 2, ',', '.') ?></li>
                 </ul>
 
                 <form method="POST" action="reservas.php?view=recursos&id_recurso=<?= (int)$recursoSeleccionado['id_recurso'] ?>">
+                    <label for="fecha_inicio"><strong>Fecha inicio:</strong></label>
+                    <input type="datetime-local" id="fecha_inicio" name="fecha_inicio" value="<?= date('Y-m-d') ?>" required>
+
+                    <label for="fecha_fin"><strong>Fecha fin:</strong></label>
+                    <input type="datetime-local" id="fecha_fin" name="fecha_fin" value="<?= date('Y-m-d', strtotime('+1 day')) ?>" required>
+
                     <input type="hidden" name="id_recurso" value="<?= (int)$recursoSeleccionado['id_recurso'] ?>">
                     <button type="submit" name="confirmar">Confirmar Reserva</button>
                 </form>
@@ -176,8 +190,6 @@ if ($view === 'recursos'):
                     <h2><?= htmlspecialchars($recurso['nombre']) ?></h2>
                     <ul>
                         <li><strong>Descripción:</strong> <?= htmlspecialchars($recurso['descripcion']) ?></li>
-                        <li><strong>Fecha inicio:</strong> <?= htmlspecialchars($recurso['fecha_inicio']) ?></li>
-                        <li><strong>Fecha fin:</strong> <?= htmlspecialchars($recurso['fecha_fin']) ?></li>
                         <li><strong>Plazas disponibles:</strong> <?= (int)$recurso['plazas'] ?></li>
                         <li><strong>Precio:</strong> €<?= number_format($recurso['precio'], 2, ',', '.') ?></li>
                     </ul>
@@ -210,7 +222,7 @@ if ($view === 'recursos'):
         $reservas = $reservaObj->obtenerPorUsuario($userId);
         ?>
         <section>
-            <h1>Reservar Recursos Turísticos</h1>
+            <h3>Reservar Recursos Turísticos</h3>
             <p>Bienvenido, <?= htmlspecialchars($_SESSION['user_name']) ?> | 
            <a href="reservas.php?action=logout">Cerrar sesión</a></p>
             <h2>Mis reservas</h2>
@@ -222,7 +234,8 @@ if ($view === 'recursos'):
                     <caption>Listado de Reservas</caption>
                     <tr>
                         <th>Recurso</th>
-                        <th>Fecha reserva</th>
+                        <th>Fecha inicio</th>
+                        <th>Fecha fin</th>
                         <th>Total (€)</th>
                         <th>Confirmada</th>
                         <th>Acción</th>
@@ -230,11 +243,12 @@ if ($view === 'recursos'):
                     <?php foreach ($reservas as $reserva): ?>
                         <tr>
                             <td><?= htmlspecialchars($reserva['nombre_recurso']) ?></td>
-                            <td><?= htmlspecialchars($reserva['fecha_reserva']) ?></td>
+                            <td><?= htmlspecialchars($reserva['fecha_inicio']) ?></td>
+                            <td><?= htmlspecialchars($reserva['fecha_fin']) ?></td>
                             <td><?= number_format($reserva['total_precio'], 2, ',', '.') ?></td>
                             <td><?= $reserva['confirmada'] ? 'Sí' : 'No' ?></td>
                             <td>
-                                <form method="post"">
+                                <form method="post">
                                     <input type="hidden" name="cancelar_reserva_id" value="<?= (int)$reserva['id_reserva'] ?>">
                                     <button type="submit" onclick="return confirm('¿Seguro que quieres cancelar esta reserva?');">Cancelar</button>
                                 </form>

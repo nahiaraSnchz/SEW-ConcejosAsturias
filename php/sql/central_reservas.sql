@@ -38,8 +38,6 @@ CREATE TABLE recursos (
     nombre VARCHAR(100) NOT NULL,
     descripcion TEXT,
     plazas INT NOT NULL,
-    fecha_inicio DATETIME NOT NULL,
-    fecha_fin DATETIME NOT NULL,
     precio DECIMAL(8,2) NOT NULL,
     id_tipo INT,
     FOREIGN KEY (id_tipo) REFERENCES tipos_recurso(id_tipo)
@@ -50,7 +48,8 @@ CREATE TABLE reservas (
     id_reserva INT AUTO_INCREMENT PRIMARY KEY,
     id_usuario INT,
     id_recurso INT,
-    fecha_reserva DATETIME DEFAULT CURRENT_TIMESTAMP,
+    fecha_inicio DATETIME NOT NULL,
+    fecha_fin DATETIME NOT NULL,
     confirmada BOOLEAN DEFAULT FALSE,
     total_precio DECIMAL(8,2),
     FOREIGN KEY (id_usuario) REFERENCES usuarios(id_usuario),

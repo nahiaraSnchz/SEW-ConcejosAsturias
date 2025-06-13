@@ -19,10 +19,10 @@
 body {
     font-family: "Calibri", sans-serif;
     line-height: 1.6;
-    background-color: #f4f4f4; /* Color de fondo */
-    color:#333; /* Color de la letra */
-    padding: 2em; /* Espaciado */
-    font-size: 1rem; /* Tamaño de la letra */
+    background-color: #f4f4f4; 
+    color:#333; 
+    padding: 2em; 
+    font-size: 1rem; 
 }
 
 /*Especificidad 001 */
@@ -40,48 +40,44 @@ header {
 
 /*Especificidad 003 */
 header h1 a {
-    color: white;
-    /* Advertencia: Hereda color de fondo de header */
+    color: white;  /* Advertencia: Hereda color de fondo de header */
 }
 
-/*Especificidad 004 */
+/*Especificidad 013 */
 header h1 a:visited {
-    color: white;
-    /* Advertencia: Hereda color de fondo de header */
+    color: white;  /* Advertencia: Hereda color de fondo de header */
 }
 
 /*Especificidad 002 */
 header a {
-    color: white;
-    text-decoration: none;
-    /* Advertencia: Hereda color de fondo de header */
+    color: white;   /* Advertencia: Hereda color de fondo de header */
+    text-decoration: none;  
 }
 
-/*Especificidad 003 */
+/*Especificidad 012 */
 header a:visited {
-    color: #c1effd; /* Color de la letra */
-    /* Advertencia: Hereda color de fondo de header */
+    color: #c1effd;   /* Advertencia: Hereda color de fondo de header */
 }
 
 /*Especificidad 001 */
 a {
-    color: #3498db; /* Color de la letra */
+    color: #3498db;    /* Advertencia: Hereda color de fondo de body */
     text-decoration: none; /* Sin subrayado */
-    /* Advertencia: Hereda color de fondo de header o body*/
 }
 
-/*Especificidad 002 */
+/*Especificidad 011 */
 a:hover {
     text-decoration: underline; /* Subrayado al pasar el mouse */
-    /* Advertencia: Hereda color de fondo de header o body*/
+    
 }
 
-/*Especificidad 002 */
+/*Especificidad 011 */
 a:visited {
-    color: #2f5f80; /* Color de la letra */
+    color: #2f5f80;   /* Advertencia: Hereda color de fondo de header o body*/
+    
 }
 
-/*Especificidad 003 */
+/*Especificidad 012 */
 header + p:first-of-type {
     font-size:0.9em;
     padding-top: 1em;
@@ -90,89 +86,89 @@ header + p:first-of-type {
 
 /*Especificidad 001 */
 h2 {
-    text-align: left; /* Centrar texto */
-    font-size: 2rem; /* Tamaño de la letra */
-    padding: 1rem; /* Espaciado */
+    text-align: left; 
+    font-size: 2rem; 
+    padding: 1rem; 
 }
 
 /*Especificidad 001 */
 h3{
-    color: #2f5f80; /* Color de la letra */
-    font-size: 1.5rem; /* Tamaño de la letra */ 
-    margin-bottom: 1rem; /* Espaciado */
+    color: #2f5f80;   /* Advertencia: Hereda color de fondo de body */
+    font-size: 1.5rem; 
+    margin-bottom: 1rem; 
 
-    /* Advertencia: Hereda color de fondo de body */
+    
 }
 
 /*Especificidad 001 */
 h4 {
-    font-size: 1.25rem; /* Tamaño de la letra */
-    margin-top: 2rem; /* Espaciado */
-    margin-bottom: 1rem; /* Espaciado */
+    font-size: 1.25rem; 
+    margin-top: 2rem; 
+    margin-bottom: 1rem; 
 }
 
 /*Especificidad 001 */
 p {
-    font-size: 1.125rem; /* Tamaño de la letra */
-    margin-bottom: 2rem; /* Espaciado */
+    font-size: 1.125rem; 
+    margin-bottom: 2rem; 
     line-height: 1.80; /* Interlineado */
 }
 
 /*Especificidad 001 */
 section {
-    background-color: #fff;
-    border-radius: 1rem; /* Bordes redondeados */
-    box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.1); /* Sombra */
-    padding-left: 1.5rem; /* Espaciado */
+    background-color: #fff;   /* Advertencia: Hereda color de fuente de body */
+    border-radius: 1rem;        /* Bordes redondeados */
+    box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.1);   /* Sombra */
+    padding-left: 1.5rem; 
     padding-top: 2em;
 
-    /* Advertencia: Hereda color de fuente de body */
+    
 }
 
-/*Especificidad 100 */
+/*Especificidad 003 */
 body section table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 1rem;
 }
 
-/*Especificidad 101 */
+/*Especificidad 004 */
 body section table caption {
     text-align: left;
     font-size: 1.2rem;
     font-weight: bold;
     margin-bottom: 0.5rem;
-    color: #2f5f80;
+    color: #2f5f80;     /* Advertencia: Hereda color de fondo de section */
 
-    /* Advertencia: Hereda color de fondo de body */
+    
 }
 
-/*Especificidad 202 */
+/*Especificidad 004 */
 body section table th, body section table td {
-    border: 1px solid #ccc;
-    padding: 10px;
+    border: 0.0625rem solid #ccc; 
+    padding: 0.625rem; 
     text-align: left;
 }
 
-/*Especificidad 101 */
+/*Especificidad 004 */
 body section table th {
     background-color: #2f5f80;
     color: white;
     font-weight: bold;
 }
 
-/*Especificidad 102 */
+/*Especificidad 014 */
 body section table td:first-child {
     font-weight: bold;
 }
 
-/*Especificidad 102 */
+/*Especificidad 014 */
 body section table tr:nth-child(even) {
-    background-color: #f4f4f4;
-    /* Advertencia: Hereda color de fuente de body */
+    background-color: #f4f4f4;  /* Advertencia: Hereda color de fuente de section */
+    
 }
 
-/*Especificidad 002 */
+/*Especificidad 001 (cada uno) */
 ol, ul {
     margin-left: 2rem;
     font-size: 1.125rem;
@@ -188,7 +184,7 @@ ul {
     list-style-type: disc; /* Puntos en la lista no ordenada */
 }
 
-/*Especificidad 001 */
+/*Especificidad 002 */
 ul ul {
     margin-top: 0.5rem;
     list-style-type: circle; /* Sublista con círculos */
@@ -218,8 +214,7 @@ dd {
 video {
     display: block;
     margin: 0.3em;
-    margin-bottom: 1em;
-    max-width: 30vw; /* Antes: 20vw */
+    max-width: 30vw;
     height: auto;
 }
   
@@ -232,15 +227,16 @@ audio {
 
 /* ESTILOS PARA EL CARRUSEL */
 
-
+/*Especificidad 002 */
 main > article {
     position: relative;
-    width: 31.25em;  /* 500px / 16px = 31.25em */
+    width: 31.25em;  
     height: 25em; 
     overflow: hidden;
     margin: 0 auto;
 }
 
+/*Especificidad 003 */
 main > article > img {
     position: absolute;
     top: 0;
@@ -252,7 +248,7 @@ main > article > img {
 }
 
 
-
+/*Especificidad 003 */
 main > article > button {
     position: absolute;
     top: 50%;
@@ -260,23 +256,25 @@ main > article > button {
     background-color: rgba(0, 0, 0, 0.5);
     color: white;
     border: none;
-    padding: 10px 15px;
+    padding: 0.625rem 0.9375rem;
     cursor: pointer;
     font-size: 1rem;
     z-index: 10;
 }
 
+/*Especificidad 013 */
 main > article > button:nth-of-type(1) {
-    right: 10px;
+    right: 0.625rem;
 }
 
+/*Especificidad 013 */
 main > article > button:nth-of-type(2) {
-    left: 10px;
+    left: 0.625rem;
 }
 
 /* ESTILOS PARA RUTAS */
 
-
+/*Especificidad 002 */
 article > img {
     display: flex;
     overflow: hidden;
@@ -287,10 +285,10 @@ article > img {
     object-fit: cover;
 }
 
+/*Especificidad 002 */
 article > video {
     display: block;
     margin: 0.3em;
-    margin-bottom: 1em;
     max-width: 20vw;
     height: auto;
 }

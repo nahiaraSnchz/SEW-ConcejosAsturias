@@ -16,7 +16,7 @@ class Recursos {
     }
 
     public function obtenerTodos() {
-        $sql = "SELECT id_recurso, nombre, descripcion, plazas, fecha_inicio, fecha_fin, precio FROM recursos WHERE plazas > 0 ORDER BY fecha_inicio";
+        $sql = "SELECT id_recurso, nombre, descripcion, plazas, precio FROM recursos WHERE plazas > 0";
         $result = $this->conn->query($sql);
         $recursos = [];
         if ($result) {
@@ -25,6 +25,19 @@ class Recursos {
             }
         }
         return $recursos;
+    }
+
+    // Método para obtener el precio de un recurso por id
+    public function obtenerPrecio($idRecurso) {
+        $sql = "SELECT precio FROM recursos WHERE id_recurso = ?";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bind_param("i", $idRecurso);
+        $stmt->execute();
+        $resultado = $stmt->get_result()->fetch_assoc();
+        if ($resultado) {
+            return (float)$resultado['precio'];
+        }
+        return 0.0;
     }
 }
 

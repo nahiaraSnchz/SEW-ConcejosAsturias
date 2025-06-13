@@ -16,10 +16,12 @@ nav {
     padding-bottom: 1em;
 }
 
+/*Especificidad 001 (cada uno)*/
 header, nav {
     max-width: 100%;
 }
 
+/*Especificidad 002 */
 nav a {
     padding-left: 1em;
     padding-right: 1em;
@@ -27,14 +29,18 @@ nav a {
 
 /* Media query para pantallas pequeñas */
 @media (max-width: 465px) {
+
+    /*Especificidad 001 */
     header {
-        padding-right: 0.5em;
+        padding-right: 0.5em;  /* Advertencia: Se redefine padding-right */
     }
 
+    /*Especificidad 001 */
     h1 {
         font-size: 2rem; /* Ajustar tamaño en pantallas pequeñas */
     }
 
+    /*Especificidad 002 */
     main > article {
         position: relative;
         width: 100%;
