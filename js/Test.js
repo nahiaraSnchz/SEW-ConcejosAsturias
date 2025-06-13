@@ -197,6 +197,49 @@ class Test {
 
     this.container.appendChild(h2);
     this.container.appendChild(p);
+
+    const ul = document.createElement("ul");
+
+    this.questions.forEach((q, i) => {
+      const li = document.createElement("li");
+      li.style.marginBottom = "1em";
+
+      const pregunta = document.createElement("p");
+      pregunta.textContent = `${i + 1}. ${q.question}`;
+
+      const respuestaUsuario = this.userAnswers[i];
+      const respuestaCorrecta = q.correctAnswer;
+
+      const textoUsuario = respuestaUsuario !== null
+        ? q.options[respuestaUsuario]
+        : "No respondida";
+
+      li.appendChild(pregunta);
+
+      if (respuestaUsuario === respuestaCorrecta) {
+        // Correcta, solo muestra la respuesta del usuario
+        const correcto = document.createElement("p");
+        correcto.textContent = `✅ Respuesta correcta: ${textoUsuario}`;
+        li.appendChild(correcto);
+      } else {
+        // Incorrecta
+        const incorrecta = document.createElement("p");
+        incorrecta.textContent = "❌ INCORRECTA";
+        li.appendChild(incorrecta);
+
+        const marcada = document.createElement("p");
+        marcada.textContent = `Respuesta marcada: ${textoUsuario}`;
+        li.appendChild(marcada);
+
+        const correcta = document.createElement("p");
+        correcta.textContent = `Respuesta correcta: ${q.options[respuestaCorrecta]}`;
+        li.appendChild(correcta);
+      }
+
+      ul.appendChild(li);
+    });
+
+    this.container.appendChild(ul);
   }
 }
 

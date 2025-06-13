@@ -6,7 +6,7 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-$userId = (int)$_SESSION['user_id'];
+
 
 require_once 'php/database.php';
 require_once 'php/usuarios.php';
@@ -24,7 +24,12 @@ $mensajeRegistro = '';
 if ($authAction === 'login' && $_SERVER['REQUEST_METHOD'] === 'POST') {
     $mensajeLogin = $usuarioModel->login($_POST['email'], $_POST['password']);
     if ($mensajeLogin === 'OK') {
-        header('Location: reservas.php');
+        // Obtener datos del usuario si login fue correcto
+        $datosUsuario = $db->obtenerUsuarioPorEmail($_POST['email']); 
+        $_SESSION['user_id'] = $datosUsuario['id_usuario'];
+        $_SESSION['user_name'] = $datosUsuario['nombre'];
+        
+        header('Location: reservas.php?view=reservas');
         exit;
     }
 } elseif ($authAction === 'registro' && $_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -66,7 +71,7 @@ if (isset($_SESSION['user_id']) && $view === 'recursos') {
         <a href="index.html">Inicio</a>
         <a href="reservas.php?view=recursos" title="Recursos Turísticos">Recursos Turísticos</a>
         <a href="reservas.php?view=reservas" title="Reservas">Reservas</a>
-        <a href="../ayuda.html">Ayuda</a>
+        <a href="ayuda.html">Ayuda</a>
         <?php if (isset($_SESSION['user_id'])): ?>
             <a href="reservas.php?action=logout">Cerrar sesión (<?= htmlspecialchars($_SESSION['user_name']) ?>)</a>
         <?php endif; ?>
@@ -201,9 +206,13 @@ if ($view === 'recursos'):
         }
 
         // Obtener reservas actuales
+        $userId = $_SESSION['user_id'];
         $reservas = $reservaObj->obtenerPorUsuario($userId);
         ?>
         <section>
+            <h1>Reservar Recursos Turísticos</h1>
+            <p>Bienvenido, <?= htmlspecialchars($_SESSION['user_name']) ?> | 
+           <a href="reservas.php?action=logout">Cerrar sesión</a></p>
             <h2>Mis reservas</h2>
 
             <?php if (empty($reservas)): ?>

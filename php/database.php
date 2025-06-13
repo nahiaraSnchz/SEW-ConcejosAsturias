@@ -85,6 +85,8 @@ class Database {
         return $existe;
     }
 
+    
+
     // Crear nuevo usuario con password hasheado
     public function crearUsuario($nombre, $email, $passwordHash) {
         $stmt = $this->conn->prepare("INSERT INTO usuarios (nombre, email, password, fecha_registro) VALUES (?, ?, ?, NOW())");
@@ -107,14 +109,14 @@ class Database {
     }
 
     public function obtenerUsuarioPorEmail($email) {
-    $stmt = $this->conn->prepare("SELECT id_usuario, nombre, email, password FROM usuarios WHERE email = ?");
-    $stmt->bind_param('s', $email);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    $user = $result->fetch_assoc();
-    $stmt->close();
-    return $user;
-}
+        $stmt = $this->conn->prepare("SELECT id_usuario, nombre, email, password FROM usuarios WHERE email = ?");
+        $stmt->bind_param('s', $email);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $user = $result->fetch_assoc();
+        $stmt->close();
+        return $user;
+    }
 
     
 }
