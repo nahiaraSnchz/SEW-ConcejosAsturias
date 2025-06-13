@@ -216,14 +216,17 @@ dd {
 
 /*Especificidad 001 */
 video {
-    width: 100%;
+    display: block;
+    margin: 0.3em;
+    margin-bottom: 1em;
+    max-width: 30vw; /* Antes: 20vw */
     height: auto;
-  }
+}
   
 /*Especificidad 001 */
-  audio {
+audio {
     width: 50%; 
-  }
+}
 
 
 
@@ -273,17 +276,15 @@ main > article > button:nth-of-type(2) {
 
 /* ESTILOS PARA RUTAS */
 
-article {
-  display: flex;
-  overflow: hidden;
-  width: 80vw;
-  margin: auto;
-}
 
 article > img {
-  flex: 0 0 100%;
-  height: auto;
-  object-fit: cover;
+    display: flex;
+    overflow: hidden;
+    width: 80vw;
+    margin: auto;
+    flex: 0 0 100%;
+    height: auto;
+    object-fit: cover;
 }
 
 article > video {

@@ -228,36 +228,104 @@ class RutasConMapas {
                     section.appendChild(errorMsg);
                 });
 
-            // Después de dibujar el mapa, hacemos otro fetch para la altimetría
             const altimetria = ruta.querySelector("altimetria");
             const svgArchivo = altimetria?.getAttribute("archivo_svg");
 
             if (svgArchivo) {
-            fetch(svgArchivo)
-                .then(response => {
-                    if (!response.ok) throw new Error("No se pudo cargar la altimetría SVG.");
-                    return response.text();  // o blob si quieres insertarlo como imagen
+                fetch(svgArchivo)
+                    .then(response => {
+                        if (!response.ok) throw new Error("No se pudo cargar la altimetría SVG.");
+                        return response.text();
                     })
-                .then(svgContent => {
-                    const tituloAltimetria = document.createElement("h4");
-                    tituloAltimetria.textContent = "Altimetría de la ruta";
-                    section.appendChild(tituloAltimetria);
+                    .then(svgContent => {
+                        const tituloAltimetria = document.createElement("h4");
+                        tituloAltimetria.textContent = "Altimetría de la ruta";
+                        section.appendChild(tituloAltimetria);
 
-                    // Insertar la imagen desde URL directamente (más simple)
-                    const img = document.createElement("img");
-                    img.src = svgArchivo;
-                    img.alt = "Altimetría de la ruta";
-                    section.appendChild(img);
+                        const contenedor = document.createElement("div");
+                        contenedor.innerHTML = svgContent;
+                        const svg = contenedor.querySelector("svg");
 
-                    section.insertAdjacentHTML('afterend', '<br>');
-                })
-                .catch(err => {
-                    const errorAlt = document.createElement("p");
-                    errorAlt.textContent = `❌ Error al cargar altimetría: ${err.message}`;
-                    section.appendChild(errorAlt);
-                
-                });
+                        const ancho = parseFloat(svg.getAttribute("width")) || 500;
+                        const altoOriginal = parseFloat(svg.getAttribute("height")) || 200;
+
+                        const espacioExtraArriba = 100; // espacio extra arriba para el texto
+                        const nuevoAlto = altoOriginal + espacioExtraArriba;
+                        svg.setAttribute("height", nuevoAlto);
+
+                        // Mover todos los elementos dentro del SVG hacia abajo para dejar espacio arriba
+                        const todosLosElementos = svg.querySelectorAll("*");
+                        todosLosElementos.forEach(el => {
+                            // Obtiene transform actual o vacío
+                            const transformActual = el.getAttribute("transform") || "";
+                            // Añade translate para bajar
+                            el.setAttribute("transform", `translate(0,${espacioExtraArriba}) ${transformActual}`);
+                        });
+
+                        // Línea y etiqueta de cota 0 m (posición ajustada por espacio extra)
+                        const lineaCero = document.createElementNS("http://www.w3.org/2000/svg", "line");
+                        lineaCero.setAttribute("x1", 0);
+                        lineaCero.setAttribute("y1", nuevoAlto);
+                        lineaCero.setAttribute("x2", ancho);
+                        lineaCero.setAttribute("y2", nuevoAlto);
+                        lineaCero.setAttribute("stroke", "red");
+                        lineaCero.setAttribute("stroke-dasharray", "4");
+                        svg.appendChild(lineaCero);
+
+                        const etiquetaCero = document.createElementNS("http://www.w3.org/2000/svg", "text");
+                        etiquetaCero.setAttribute("x", 5);
+                        etiquetaCero.setAttribute("y", nuevoAlto - 5);
+                        etiquetaCero.setAttribute("font-size", "10");
+                        etiquetaCero.setAttribute("fill", "red");
+                        etiquetaCero.textContent = "Cota 0 m";
+                        svg.appendChild(etiquetaCero);
+
+                        // Extraer puntos del polyline
+                        const polyline = svg.querySelector("polyline");
+                        if (!polyline) {
+                            throw new Error("No se encontró el polyline en el SVG.");
+                        }
+                        const puntos = polyline.getAttribute("points").trim().split(" ");
+
+                        const hitosXML = ruta.querySelectorAll("hito");
+
+                        // Por cada hito, colocar círculo y texto en el punto correspondiente (ajustando Y)
+                        hitosXML.forEach((hito, i) => {
+                            if (i >= puntos.length) return; // evitar desbordar si hay más hitos que puntos
+
+                            const nombre = hito.querySelector("nombre")?.textContent ?? "Hito";
+
+                            const [x, yOriginal] = puntos[i].split(",").map(coord => parseFloat(coord));
+                            const y = yOriginal + espacioExtraArriba; // desplaza también los puntos
+
+                            // Círculo rojo en la posición exacta del punto
+                            const punto = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+                            punto.setAttribute("cx", x);
+                            punto.setAttribute("cy", y);
+                            punto.setAttribute("r", 4);
+                            punto.setAttribute("fill", "red");
+                            svg.appendChild(punto);
+
+                            // Texto vertical cerca del círculo
+                            const texto = document.createElementNS("http://www.w3.org/2000/svg", "text");
+                            texto.setAttribute("x", x + 5);
+                            texto.setAttribute("y", y - 5);
+                            texto.setAttribute("font-size", "10");
+                            texto.setAttribute("fill", "black");
+                            texto.setAttribute("transform", `rotate(-90 ${x + 5} ${y - 5})`);
+                            texto.textContent = nombre;
+                            svg.appendChild(texto);
+                        });
+
+                        section.appendChild(contenedor);
+                    })
+                    .catch(err => {
+                        const errorAlt = document.createElement("p");
+                        errorAlt.textContent = `Error al cargar altimetría: ${err.message}`;
+                        section.appendChild(errorAlt);
+                    });
             }
+
         });
     }
 
