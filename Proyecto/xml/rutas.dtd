@@ -1,0 +1,45 @@
+<!ELEMENT rutas (ruta+)>
+
+<!ELEMENT ruta (medio_transporte, fecha_inicio?, hora_inicio?, duracion, agencia, descripcion, personas_adecuadas, inicio, referencias, recomendacion, hitos, planimetria, altimetria)>
+<!ATTLIST ruta id CDATA #REQUIRED>
+<!ATTLIST ruta nombre CDATA #REQUIRED>
+<!ATTLIST ruta tipo CDATA #REQUIRED>
+
+<!ELEMENT medio_transporte (#PCDATA)>
+<!ELEMENT fecha_inicio (#PCDATA)>
+<!ELEMENT hora_inicio (#PCDATA)>
+<!ELEMENT duracion (#PCDATA)>
+<!ELEMENT agencia (#PCDATA)>
+<!ELEMENT descripcion (#PCDATA)>
+<!ELEMENT personas_adecuadas (#PCDATA)>
+
+<!ELEMENT inicio (lugar, direccion, coordenadas)>
+<!ELEMENT lugar (#PCDATA)>
+<!ELEMENT direccion (#PCDATA)>
+<!ELEMENT coordenadas (latitud, longitud, altitud)>
+<!ELEMENT latitud (#PCDATA)>
+<!ELEMENT longitud (#PCDATA)>
+<!ELEMENT altitud (#PCDATA)>
+
+<!ELEMENT referencias (referencia+)>
+<!ELEMENT referencia (#PCDATA)>
+
+<!ELEMENT recomendacion (#PCDATA)>
+
+<!ELEMENT hitos (hito+)>
+<!ELEMENT hito (nombre, descripcion, coordenadas, distancia, fotos, videos?)>
+<!ELEMENT nombre (#PCDATA)>
+<!ELEMENT distancia (#PCDATA)>
+<!ATTLIST distancia unidad CDATA #REQUIRED>
+
+<!ELEMENT fotos (foto+)>
+<!ELEMENT foto (#PCDATA)>
+
+<!ELEMENT videos (video*)>
+<!ELEMENT video (#PCDATA)>
+
+<!ELEMENT planimetria EMPTY>
+<!ATTLIST planimetria archivo_kml CDATA #REQUIRED>
+
+<!ELEMENT altimetria EMPTY>
+<!ATTLIST altimetria archivo_svg CDATA #REQUIRED>

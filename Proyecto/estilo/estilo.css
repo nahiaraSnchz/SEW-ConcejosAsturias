@@ -1,0 +1,294 @@
+/**
+    * ----------------------------------------
+    * Estilos generales
+    * ----------------------------------------
+    * Color de fondo: #f4f4f4
+    * Color sombreado titulos: #3498dba9
+    * Color titulos: #2f5f80
+    * Color link visitado: #0E3D5D
+**/
+
+/*Especificidad 000 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*Especificidad 001 */
+body {
+    font-family: "Calibri", sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4; 
+    color:#333; 
+    padding: 2em; 
+    font-size: 1rem; 
+}
+
+/*Especificidad 001 */
+header {
+    color:black;
+    background-color: #2f5f80;
+    padding: 1rem;
+    text-align: left;
+}
+
+/*Especificidad 010 */
+.active {
+    text-decoration: underline;
+}
+
+/*Especificidad 003 */
+header h1 a {
+    color: white;  /* Advertencia: Hereda color de fondo de header */
+}
+
+/*Especificidad 013 */
+header h1 a:visited {
+    color: white;  /* Advertencia: Hereda color de fondo de header */
+}
+
+/*Especificidad 002 */
+header a {
+    color: white;   /* Advertencia: Hereda color de fondo de header */
+    text-decoration: none;  
+}
+
+/*Especificidad 012 */
+header a:visited {
+    color: #c1effd;   /* Advertencia: Hereda color de fondo de header */
+}
+
+/*Especificidad 001 */
+a {
+    color: #3498db;    /* Advertencia: Hereda color de fondo de body */
+    text-decoration: none; /* Sin subrayado */
+}
+
+/*Especificidad 011 */
+a:hover {
+    text-decoration: underline; /* Subrayado al pasar el mouse */
+    
+}
+
+/*Especificidad 011 */
+a:visited {
+    color: #2f5f80;   /* Advertencia: Hereda color de fondo de header o body*/
+    
+}
+
+/*Especificidad 012 */
+header + p:first-of-type {
+    font-size:0.9em;
+    padding-top: 1em;
+    padding-left: 0.5em;
+}
+
+/*Especificidad 001 */
+h2 {
+    text-align: left; 
+    font-size: 2rem; 
+    padding: 1rem; 
+}
+
+/*Especificidad 001 */
+h3{
+    color: #2f5f80;   /* Advertencia: Hereda color de fondo de body */
+    font-size: 1.5rem; 
+    margin-bottom: 1rem; 
+
+    
+}
+
+/*Especificidad 001 */
+h4 {
+    font-size: 1.25rem; 
+    margin-top: 2rem; 
+    margin-bottom: 1rem; 
+}
+
+/*Especificidad 001 */
+p {
+    font-size: 1.125rem; 
+    margin-bottom: 2rem; 
+    line-height: 1.80; /* Interlineado */
+}
+
+/*Especificidad 001 */
+section {
+    background-color: #fff;   /* Advertencia: Hereda color de fuente de body */
+    border-radius: 1rem;        /* Bordes redondeados */
+    box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.1);   /* Sombra */
+    padding-left: 1.5rem; 
+    padding-top: 2em;
+
+    
+}
+
+/*Especificidad 003 */
+body section table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+/*Especificidad 004 */
+body section table caption {
+    text-align: left;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #2f5f80;     /* Advertencia: Hereda color de fondo de section */
+
+    
+}
+
+/*Especificidad 004 */
+body section table th, body section table td {
+    border: 0.0625rem solid #ccc; 
+    padding: 0.625rem; 
+    text-align: left;
+}
+
+/*Especificidad 004 */
+body section table th {
+    background-color: #2f5f80;
+    color: white;
+    font-weight: bold;
+}
+
+/*Especificidad 014 */
+body section table td:first-child {
+    font-weight: bold;
+}
+
+/*Especificidad 014 */
+body section table tr:nth-child(even) {
+    background-color: #f4f4f4;  /* Advertencia: Hereda color de fuente de section */
+    
+}
+
+/*Especificidad 001 (cada uno) */
+ol, ul {
+    margin-left: 2rem;
+    font-size: 1.125rem;
+}
+
+/*Especificidad 001 */
+ol {
+    list-style-type: decimal; /* Numeración en la lista ordenada */
+}
+
+/*Especificidad 001 */
+ul {
+    list-style-type: disc; /* Puntos en la lista no ordenada */
+}
+
+/*Especificidad 002 */
+ul ul {
+    margin-top: 0.5rem;
+    list-style-type: circle; /* Sublista con círculos */
+    margin-left: 2rem;
+}
+
+/*Especificidad 001 */
+dl {
+    margin-left: 2rem;
+    font-size: 1.125rem;
+}
+
+/*Especificidad 001 */
+dt {
+    font-weight: bold;
+    font-size: 1.25rem;
+}
+
+/*Especificidad 001 */
+dd {
+    margin-bottom: 1rem;
+}
+
+
+
+/*Especificidad 001 */
+video {
+    display: block;
+    margin: 0.3em;
+    max-width: 30vw;
+    height: auto;
+}
+  
+/*Especificidad 001 */
+audio {
+    width: 50%; 
+}
+
+
+
+/* ESTILOS PARA EL CARRUSEL */
+
+/*Especificidad 002 */
+main > article {
+    position: relative;
+    width: 31.25em;  
+    height: 25em; 
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+/*Especificidad 003 */
+main > article > img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+
+/*Especificidad 003 */
+main > article > button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 0.625rem 0.9375rem;
+    cursor: pointer;
+    font-size: 1rem;
+    z-index: 10;
+}
+
+/*Especificidad 013 */
+main > article > button:nth-of-type(1) {
+    right: 0.625rem;
+}
+
+/*Especificidad 013 */
+main > article > button:nth-of-type(2) {
+    left: 0.625rem;
+}
+
+/* ESTILOS PARA RUTAS */
+
+/*Especificidad 002 */
+article > img {
+    display: flex;
+    overflow: hidden;
+    width: 80vw;
+    margin: auto;
+    flex: 0 0 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/*Especificidad 002 */
+article > video {
+    display: block;
+    margin: 0.3em;
+    max-width: 20vw;
+    height: auto;
+}

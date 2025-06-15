@@ -27,6 +27,11 @@ nav a {
     padding-right: 1em;
 }
 
+div {
+    width: 90%;
+    height: 44.4vh;
+}
+
 /* Media query para pantallas pequeñas */
 @media (max-width: 465px) {
 

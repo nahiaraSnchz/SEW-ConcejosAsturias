@@ -1,0 +1,6 @@
+id_recurso;nombre;descripcion;plazas;precio;id_tipo
+1;Museo de Arte;Visita guiada por el museo de arte local;50;12,5;1
+2;Hotel Paraiso;Hotel centrico con spa;30;100;2
+3;Ruta del Rio Cubia;Sendero natural junto al rio Cubia;20;5;3
+4;Restaurante El Fogon;Cocina tradicional asturiana;40;25;4
+5;Parque Natural Monte;Visita al parque con guia;14;8;5

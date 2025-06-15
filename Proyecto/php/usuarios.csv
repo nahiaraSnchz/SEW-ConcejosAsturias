@@ -1,0 +1,3 @@
+id_usuario;nombre;email;password;fecha_registro
+1;Sara Sanchez;sara@example.com;$2y$10$hsE9/L6j2VFHAFq7ox/4eecGJ3LBY2.3BOIL.IrlnJnnl6d7XB0j.;2025/06/10 14/00/00
+2;Emilio Guillen;emilio@example.com;$2y$10$o2.Y8xDfIrLkYUcIS6BxqeHbpeCVCj6AGCrkFlInNRh9rhH3yL.Vy;2025/06/02 09/00/00

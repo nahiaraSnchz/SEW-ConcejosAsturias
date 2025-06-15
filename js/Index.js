@@ -46,7 +46,7 @@ class AppGrado {
   }
 
   cargarNoticias() {
-    const url = `https://newsdata.io/api/1/latest?apikey=pub_c13fffda137d4f1b9bf5702bca9044c4&q=grado%2C%20asturias&country=es&language=es`;
+    const url = `https://newsdata.io/api/1/latest?apikey=${this.apiKey}&q=grado%2C%20asturias&country=es&language=es`;
 
     $.ajax({
       url: url,
@@ -61,17 +61,18 @@ class AppGrado {
         const noticias = response.results.slice(0, this.maxNoticias);
         noticias.forEach(noticia => {
           const $article = $('<article>');
-          const titulo = noticia.title || 'Sin título';
-          const descripcion = noticia.description || '';
+          
+          const titulo = (noticia.title || 'Sin título');
+          const descripcion = (noticia.description || '');
           const enlace = noticia.link || '#';
           const fecha = noticia.pubDate ? new Date(noticia.pubDate).toLocaleString() : '';
 
-          const $h4 = $('<h4>').text(titulo);
+          const $h4 = $('<h4>').text(titulo.normalize('NFC'));
           const $a = $('<a>')
             .attr('href', enlace)
             .attr('target', '_blank')
             .text('Leer más');
-          const $p = $('<p>').text(descripcion);
+          const $p = $('<p>').text(descripcion.normalize('NFC'));
           const $small = $('<small>').text(fecha);
 
           $article.append($h4, $p, $a, $small);
@@ -84,7 +85,6 @@ class AppGrado {
     });
   }
 }
-
 $(document).ready(() => {
   const app = new AppGrado();
   app.iniciar();

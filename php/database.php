@@ -6,19 +6,30 @@ class Database {
     private $dbname = 'central_reservas';
     public $conn;
 
-    public function __construct() {
+    public function __construct($host = 'localhost', $user = 'DBUSER2025', $pass = 'DBPWD2025', $dbname = null) {
+        $this->host = $host;
+        $this->user = $user;
+        $this->pass = $pass;
+        // Solo actualizar si $dbname NO es null, sino mantiene el valor por defecto
+        if ($dbname !== null) {
+            $this->dbname = $dbname;
+        }
         $this->connect();
     }
 
     private function connect() {
-        // Crear conexión
-        $this->conn = new mysqli($this->host, $this->user, $this->pass, $this->dbname);
+        if ($this->dbname) {
+            // Conectar con base de datos especificada
+            $this->conn = new mysqli($this->host, $this->user, $this->pass, $this->dbname);
+        } else {
+            // Conectar sin seleccionar base de datos
+            $this->conn = new mysqli($this->host, $this->user, $this->pass);
+        }
 
-        // Comprobar conexión
         if ($this->conn->connect_error) {
             die('Error de conexión: ' . $this->conn->connect_error);
         }
-        // Opcional: establecer charset
+
         $this->conn->set_charset('utf8mb4');
     }
 
@@ -116,6 +127,14 @@ class Database {
         $user = $result->fetch_assoc();
         $stmt->close();
         return $user;
+    }
+
+    public function query($sql) {
+        $result = $this->conn->query($sql);
+        if ($result === false) {
+            throw new Exception("Error en la consulta SQL: " . $this->conn->error);
+        }
+        return $result;
     }
 
     

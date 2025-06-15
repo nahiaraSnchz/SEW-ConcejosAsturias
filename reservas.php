@@ -13,7 +13,28 @@ require_once 'php/usuarios.php';
 require_once 'php/recursos.php';
 require_once 'php/reserva.php';
 
+
+// Crear conexión sin base de datos para comprobar existencia
+$dbCheck = new Database(null, 'DBUSER2025', 'DBPWD2025', null);
+
+// Comprobar si base de datos existe o si tabla usuarios existe
+$dbExists = $dbCheck->query("SHOW DATABASES LIKE 'central_reservas'");
+$databaseExists = ($dbExists && $dbExists->num_rows > 0);
+
+if (!$databaseExists) {
+    // Base de datos no existe, la creamos y llenamos
+    $dbCheck->importSQLFile(__DIR__ . '/php/sql/central_reservas.sql');
+
+    $dbCheck->importarCSV(__DIR__ . '/php/tipos_recurso.csv', 'tipos_recurso');
+    $dbCheck->importarCSV(__DIR__ . '/php/recursos.csv', 'recursos');
+    $dbCheck->importarCSV(__DIR__ . '/php/usuarios.csv', 'usuarios');
+    $dbCheck->importarCSV(__DIR__ . '/php/reservas.csv', 'reservas');
+    $dbCheck->importarCSV(__DIR__ . '/php/cancelaciones.csv', 'cancelaciones');
+}
+
+// Ahora crear conexión normal con base de datos
 $db = new Database('localhost', 'DBUSER2025', 'DBPWD2025', 'central_reservas');
+
 $usuarioModel = new Usuario($db);
 
 $authAction = $_GET['action'] ?? '';
@@ -210,6 +231,9 @@ if ($view === 'recursos'):
         // Asumimos que $userId contiene el id del usuario logueado
         $reservaObj = new Reserva();
 
+        // Obtener reservas actuales
+        $userId = $_SESSION['user_id'];
+
         // Procesar cancelación si viene por POST
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cancelar_reserva_id'])) {
             $idReservaCancelar = intval($_POST['cancelar_reserva_id']);
@@ -217,8 +241,7 @@ if ($view === 'recursos'):
             echo '<p>' . htmlspecialchars($resultadoCancelacion['message']) . '</p>';
         }
 
-        // Obtener reservas actuales
-        $userId = $_SESSION['user_id'];
+        
         $reservas = $reservaObj->obtenerPorUsuario($userId);
         ?>
         <section>
@@ -230,32 +253,22 @@ if ($view === 'recursos'):
             <?php if (empty($reservas)): ?>
                 <p>No tienes reservas activas.</p>
             <?php else: ?>
-                <table>
-                    <caption>Listado de Reservas</caption>
-                    <tr>
-                        <th>Recurso</th>
-                        <th>Fecha inicio</th>
-                        <th>Fecha fin</th>
-                        <th>Total (€)</th>
-                        <th>Confirmada</th>
-                        <th>Acción</th>
-                    </tr>
-                    <?php foreach ($reservas as $reserva): ?>
-                        <tr>
-                            <td><?= htmlspecialchars($reserva['nombre_recurso']) ?></td>
-                            <td><?= htmlspecialchars($reserva['fecha_inicio']) ?></td>
-                            <td><?= htmlspecialchars($reserva['fecha_fin']) ?></td>
-                            <td><?= number_format($reserva['total_precio'], 2, ',', '.') ?></td>
-                            <td><?= $reserva['confirmada'] ? 'Sí' : 'No' ?></td>
-                            <td>
-                                <form method="post">
-                                    <input type="hidden" name="cancelar_reserva_id" value="<?= (int)$reserva['id_reserva'] ?>">
-                                    <button type="submit" onclick="return confirm('¿Seguro que quieres cancelar esta reserva?');">Cancelar</button>
-                                </form>
-                            </td>
-                        </tr>
-                    <?php endforeach; ?>
-                </table>
+                <?php foreach ($reservas as $reserva): ?>
+                    <article>
+                        <h3><?= htmlspecialchars($reserva['nombre_recurso']) ?></h3>
+                        <ul>
+                            <li><strong>Fecha inicio:</strong> <?= htmlspecialchars($reserva['fecha_inicio']) ?></li>
+                            <li><strong>Fecha fin:</strong> <?= htmlspecialchars($reserva['fecha_fin']) ?></li>
+                            <li><strong>Total (€):</strong> <?= number_format($reserva['total_precio'], 2, ',', '.') ?></li>
+                            <li><strong>Confirmada:</strong> <?= $reserva['confirmada'] ? 'Sí' : 'No' ?></li>
+                        </ul>
+                        <form method="post">
+                            <input type="hidden" name="cancelar_reserva_id" value="<?= (int)$reserva['id_reserva'] ?>">
+                            <button type="submit" onclick="return confirm('¿Seguro que quieres cancelar esta reserva?');">Cancelar</button>
+                        </form>
+                        <br>
+                    </article>
+                <?php endforeach; ?>
                 <br>
             <?php endif; ?>
         </section>

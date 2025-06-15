@@ -333,8 +333,6 @@ class RutasConMapas {
         const { Map } = await google.maps.importLibrary("maps");
 
         const divMapa = document.createElement("div");
-        divMapa.style.width = "100%";
-        divMapa.style.height = "400px";
         contenedor.appendChild(divMapa);
 
         const lineString = kmlDoc.querySelector("LineString > coordinates");

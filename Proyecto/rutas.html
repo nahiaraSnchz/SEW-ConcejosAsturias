@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+    
+    <!-- Metadatos -->
+    <meta charset="UTF-8" />
+    <meta name="author" content="Nahiara Sánchez García" />
+    <meta name="description" content="Rutas de Asturias" />
+    <meta name="keywords" content="rutas, asturias, senderismo, turismo" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>ConcejosAsturias-Rutas</title>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+    <!-- Enlaces -->
+    <link rel="stylesheet" type="text/css" href="estilo/estilo.css" />
+    <link rel="stylesheet" type="text/css" href="estilo/layout.css" />
+    <link rel="icon" href="multimedia/favicon.ico" />
+
+    <!-- Script principal -->
+    <script src="js/Ruta.js"></script>
+
+</head>
+
+<body>
+    <header>
+        <h1><a href="index.html" title="Página Inicio">ConcejosAsturias</a></h1>
+        <nav>
+            <a href="index.html" title="Página Inicio">Inicio</a>
+            <a href="gastronomia.html" title="Página Gastronomía">Gastronomía</a>
+            <a class="active" href="rutas.html" title="Página Rutas">Rutas</a>
+            <a href="juego.html" title="Página Juego">Juego</a>
+            <a href="reservas.php" title="Página Reservas">Reservas</a>
+            <a href="meteorologia.html" title="Página Meteorología">Meteorología</a>
+            <a href="ayuda.html" title="Página Ayuda">Ayuda</a>
+        </nav>
+    </header>
+
+    <p>Estás en: <a href="index.html" title="Página Inicio">Inicio</a> > Rutas</p>
+
+
+    <h1>Rutas Turísticas de Grado</h1>
+
+    <script>
+        window.onload = () => new RutasConMapas();
+    </script>
+    
+</body>
+
+</html>
